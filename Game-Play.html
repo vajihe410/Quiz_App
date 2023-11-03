@@ -5,8 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/Game-Play.css">
 </head>
 <body>
-    
+    <span id="loader"></span>
+    <div class="container">
+        <div class="header">
+            <div>
+                <span>Question No:</span>
+                <span>1</span>
+            </div>
+            <div>
+                <span>Score:</span>
+                <span>0</span>
+            </div>
+        </div>
+        <div class="main">
+            <div class="question">
+                <p></p>
+            </div>
+            <div class="answer">
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div>
+                <button id="finish-button">Finish</button>
+                <button id="next-button">Next</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/Game-Play.js"></script>
 </body>
 </html>

@@ -1,0 +1,106 @@
+#loader{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border:6px solid #6757d9;
+    border-bottom-color: transparent;
+    border-top-color:transparent ;
+    animation: loader 1.5s linear infinite;
+}
+@keyframes loader {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.container{
+    width: 700px;
+    display: none;
+}
+.header{
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header span:first-child{
+    color: #6757d9;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.header span:last-child{
+    display: inline-block;
+    background-color: #fff;
+    font-size: 1.2rem;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: 600px;
+}
+.main{
+    margin-top: 50px;
+}
+.question{
+    background-color: #6757d9;
+    padding: 16px;
+    border-radius: 16px;
+}
+.question p{
+    color: #fff;
+}
+.answer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.answer button{
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius:16px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: all 0.2s ease-in;
+    border: 2px solid #fff;
+   
+}
+.answer button:hover{
+    background-color: #eeedfb;
+}
+
+#finish-button,#next-button{
+    color: #6757d9;
+    border: 2px solid #6757d9;
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: #eeedfb;
+    transition: all 0.2 ease-in;
+    font-size: 1rem;
+    cursor: pointer;
+}
+#finish-button{
+    margin-right: 16px;
+}
+#finish-button:hover,#next-button:hover{
+    background-color: #6757d9;
+    color: #fff;
+    
+}
+.correct-answer{
+    background-color: #5bd7bc;
+}
+.incorrect-answer{
+    background-color: #fe6681;
+}
+.correct-answer:hover{
+    background-color: #5bd7bc;
+}
+.incorrect-answer:hover{
+    background-color: #fe6681;
+}
