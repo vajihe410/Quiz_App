@@ -91,7 +91,7 @@ const removeClasses = () => {
 
 const finishHandler = () =>{
     window.localStorage.setItem("score",JSON.stringify(scoreNumber))
-    window.location.assign("./End.html")
+    window.location.assign("./end.html")
 }
 
 window.addEventListener("load",fetchData)
