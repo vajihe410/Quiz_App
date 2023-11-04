@@ -3,6 +3,9 @@ const loader = document.getElementById("loader")
 const Question = document.querySelector(".question p")
 const Answers = document.querySelectorAll(".answer-text")
 const score = document.getElementById("score")
+const next = document.getElementById("next-button")
+const questionNumber = document.getElementById("question-number")
+const finish = document.getElementById("finish-button")
 
 const URL = "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
 const bonuz = 10
@@ -31,9 +34,7 @@ const fetchData =async () => {
    const response = await fetch(URL)
    const json = await response.json()
    const data = json.results
-   console.log(data)
    formatedData = formatData(data)
-   console.log(formatedData)
    start()
 }
 
@@ -50,6 +51,7 @@ const showQuestion = () => {
     Answers.forEach((button,index )=> {
         button.innerText = answers[index]
     })
+    questionNumber.innerText = questionIndex + 1
 }
 
 const checkAnswer = (event,index) => {
@@ -57,7 +59,6 @@ const checkAnswer = (event,index) => {
     isAccepted = false
     
     const isCorrect = index === correctAnswer ? true : false;
-    console.log(isCorrect)
     if(isCorrect){
         console.log(event.target)
         event.target.classList.add("correct-answer");
@@ -68,11 +69,34 @@ const checkAnswer = (event,index) => {
         event.target.classList.add("incorrect-answer");
         Answers[correctAnswer].classList.add("correct-answer");
     }
-    
+}
+
+const nextHandler = () =>{
+    questionIndex++
+    if(questionIndex < formatedData.length ){
+        isAccepted = true;
+        removeClasses()
+        showQuestion()
+    }
+    else{
+        next.style.display = "none"
+    }
+   
+}
+const removeClasses = () => {
+    Answers.forEach(button => {
+        button.className = "answer-text"
+    })
+}
+
+const finishHandler = () =>{
+    window.localStorage.setItem("score",JSON.stringify(scoreNumber))
+    window.location.assign("./End.html")
 }
 
 window.addEventListener("load",fetchData)
-
+next.addEventListener("click",nextHandler)
+finish.addEventListener("click",finishHandler)
 Answers.forEach((button,index) => {
     button.addEventListener("click",(event)=>checkAnswer(event, index))
 })
