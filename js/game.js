@@ -6,6 +6,7 @@ const score = document.getElementById("score")
 const next = document.getElementById("next-button")
 const questionNumber = document.getElementById("question-number")
 const finish = document.getElementById("finish-button")
+const error = document.getElementById("error")
 
 const level = localStorage.getItem("level") || "medium"
 
@@ -34,11 +35,17 @@ const formatData = (questionsData) => {
 }
 
 const fetchData =async () => {
-   const response = await fetch(URL)
-   const json = await response.json()
-   const data = json.results
-   formatedData = formatData(data)
-   start()
+   try{
+        const response = await fetch(URL)
+        const json = await response.json()
+        const data = json.results
+        formatedData = formatData(data)
+        start()
+   }
+   catch{
+        error.style.display = "block"
+        loader.style.display = "none"
+   }
 }
 
 const start = () => {

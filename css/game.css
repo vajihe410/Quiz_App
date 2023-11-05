@@ -105,3 +105,10 @@
 .incorrect-answer:hover{
     background-color: #fe6681;
 }
+#error{
+    color: #6757d9;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: none;
+}
