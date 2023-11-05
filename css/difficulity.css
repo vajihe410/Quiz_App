@@ -1,0 +1,45 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} h1{
+    color: #6757d9;
+    margin-bottom: 30px;
+    text-align: center;
+}
+button{
+    background-color: #fff;
+    color: #6757d9;
+    border: none;
+    width: 270px;
+    height: 50px;
+    margin-top: 16px;
+    font-size: 1.3rem;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+button:hover{
+    background-color: #6757d9;
+    color: #fff;
+}
+a{
+    color: #6757d9;
+    border: 2px solid #6757d9;
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: #eeedfb;
+    transition: all 0.2s ease-in;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    width: 104px;
+    margin-top: 50px;
+}
+ a:hover{
+    background-color: #6757d9;
+    color: #fff;
+    
+}
