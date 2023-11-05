@@ -7,7 +7,10 @@ const next = document.getElementById("next-button")
 const questionNumber = document.getElementById("question-number")
 const finish = document.getElementById("finish-button")
 
-const URL = "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+const level = localStorage.getItem("level") || "medium"
+
+const URL = `https://opentdb.com/api.php?amount=10&difficulty=${level}&type=multiple`;
+
 const bonuz = 10
 let formatedData = null;
 let questionIndex = 0;
@@ -47,6 +50,7 @@ const start = () => {
 const showQuestion = () => {
     const {question, answers ,indexCorrectAnswer} = formatedData[questionIndex]
     correctAnswer = indexCorrectAnswer
+    console.log(correctAnswer)
     Question.innerText = question
     Answers.forEach((button,index )=> {
         button.innerText = answers[index]
@@ -59,8 +63,8 @@ const checkAnswer = (event,index) => {
     isAccepted = false
     
     const isCorrect = index === correctAnswer ? true : false;
+    
     if(isCorrect){
-        console.log(event.target)
         event.target.classList.add("correct-answer");
         scoreNumber+=bonuz ;
         score.innerText = scoreNumber;
